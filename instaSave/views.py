@@ -1,7 +1,7 @@
 import telepot
 import json
 import random
-import parser
+from .parser import parseImage
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.http import HttpResponseForbidden, HttpResponseBadRequest, JsonResponse
@@ -36,7 +36,7 @@ class BotView(View):
                     text = showHelp()
                     telegramBot.sendMessage(chat_id=chat_id, text=text)
                 else:
-                    ans = parser(cmd)
+                    ans = parseImage(cmd)
                     if ans != '-1':
                         telegramBot.sendPhoto(chat_id=chat_id, photo=ans)
                     else:
