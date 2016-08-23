@@ -1,6 +1,6 @@
 import telepot
 import json
-from .parser import parseImage
+from .parser import parseImage, parseVideo
 from django.template.loader import render_to_string
 from django.http import HttpResponseForbidden, HttpResponseBadRequest, JsonResponse
 from django.views.generic import View
@@ -34,9 +34,12 @@ class BotView(View):
                     text = showHelp()
                     telegramBot.sendMessage(chat_id=chat_id, text=text)
                 else:
-                    ans = parseImage(cmd)
-                    if ans != '-1':
-                        telegramBot.sendPhoto(chat_id=chat_id, photo=ans)
+                    image = parseImage(cmd)
+                    video = parseVideo(cmd)
+                    if video != '-1':
+                        telegramBot.sendVideo(chat_id=chat_id, video=video)
+                    elif image != '-1':
+                        telegramBot.sendPhoto(chat_id=chat_id, photo=image)
                     else:
                         telegramBot.sendMessage(chat_id=chat_id, text='Wrong url!')
             else:
