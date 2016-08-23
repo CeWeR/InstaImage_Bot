@@ -7,7 +7,7 @@ from django.views.generic import View
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 
-token = '228726550:AAGBuuCcf7UCUZ-QNZyH4qBggyZk4ZX4esA'
+token = ''
 
 telegramBot = telepot.Bot(token)
 
