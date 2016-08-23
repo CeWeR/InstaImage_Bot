@@ -1,0 +1,1 @@
+web: gunicorn instaSaveBot.wsgi
