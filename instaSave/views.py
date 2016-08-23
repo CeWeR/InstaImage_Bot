@@ -1,8 +1,6 @@
 import telepot
 import json
-import random
 from .parser import parseImage
-from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.http import HttpResponseForbidden, HttpResponseBadRequest, JsonResponse
 from django.views.generic import View
@@ -14,7 +12,7 @@ token = '228726550:AAGBuuCcf7UCUZ-QNZyH4qBggyZk4ZX4esA'
 telegramBot = telepot.Bot(token)
 
 def showHelp():
-    return render_to_string('instaSave/help.md')
+    return render_to_string('help.md')
 
 class BotView(View):
     def post(self, request, botToken):
