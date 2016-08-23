@@ -14,7 +14,7 @@ token = '228726550:AAGBuuCcf7UCUZ-QNZyH4qBggyZk4ZX4esA'
 telegramBot = telepot.Bot(token)
 
 def showHelp():
-    return render_to_string('help.md')
+    return render_to_string('instaSave/help.md')
 
 class BotView(View):
     def post(self, request, botToken):
